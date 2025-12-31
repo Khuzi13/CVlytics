@@ -1,0 +1,64 @@
+{% extends "base.html" %} {% block content %}
+
+<!-- Main Checker Section -->
+<div class="checker-container">
+  <div class="checker-header">
+    <h1>CV Checker & Analyzer</h1>
+    <p>
+      Upload your CV and the job description to get an AI-powered match rating.
+    </p>
+  </div>
+
+
+  <form method="POST" id="contactForm" class="contact-form" novalidate enctype="multipart/form-data"  action="{% url 'upload_file' %}">
+    {% csrf_token %}
+
+    <div class="upload-card">
+      <div class="card-header-strip">
+        <i class="fa-solid fa-cloud-arrow-up"></i> Upload Details
+      </div>
+
+      <div class="card-body">
+        <label class="input-label">Resume / CV (PDF)</label>
+        <div class="upload-area" id="drop-area">
+          <i class="fa-solid fa-cloud-arrow-up"></i>
+          <p>Click to upload or drag and drop</p>
+          <span>PDF files only (Max 5MB)</span>
+          <input type="file" id="fileElem" name="resume" accept=".pdf" style="display: none" required />
+        </div>
+
+        <div id="file-name-display" style="margin-top: 10px; font-size: 0.9rem; color: green"></div>
+
+        <label class="input-label" style="margin-top: 20px">
+          Job Description (Optional but Recommended)
+        </label>
+        <textarea name="job_description" placeholder="Paste the job description here so our AI can check for keyword relevance..." rows="4"></textarea>
+
+        <label class="consent-checkbox" style="display: flex; align-items: center; margin-top: 15px; gap: 8px;">
+          <input type="checkbox" id="consentCheckbox" />
+          I agree that my CV can be used anonymously for model training.
+        </label>
+          {% comment %} {% if vanish_data == 1 %}
+        <button type="submit" class="btn-block" onclick="analyzeCV(event)">
+          Analyze CV <i class="fa-solid fa-arrow-right"></i>
+        </button>
+        {% else %}
+        <button type="submit" class="btn-block" onclick="analyzeCV(event)">
+          Analyze CV <i class="fa-solid fa-arrow-right"></i>
+        </button>
+        {% endif %} {% endcomment %}
+        <button type="submit" class="btn-block" onclick="analyzeCV(event)">
+          Analyze CV <i class="fa-solid fa-arrow-right"></i>
+        </button>
+
+
+      </div>
+    </div>
+    {% comment %} <button class="btn" type="submit">Send Message</button> {% endcomment %}
+
+  </form>
+
+  
+</div>
+
+{% endblock %}

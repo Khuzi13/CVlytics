@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CVlytics - Quick Resume Insights</title>
+    <link rel="icon" type="image/png" href="/static/img/logo.png">
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <!-- FontAwesome for Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo"><i class="fa-solid fa-file-lines"></i> CVlytics </div>
+
+       <div class="hamburger" id="hamburger">     
+        <i class="fa-solid fa-bars"></i>
+      </div> 
+ {% comment %} <div class="hamburger" id="hamburger">       
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+</div> {% endcomment %}
+      <div class="nav-links" id="nav-links">
+        {% comment %} {{request.path}} {% endcomment %}
+        <a class='{% if request.path == '/' %} active {% endif %}' href="/">Home Page</a>
+        <a href="/#about">About Us</a>
+        <a class='{% if request.path == '/cv-checker/' %} active {% endif %}'  href="/cv-checker/">CV Checker</a>
+        <a class= btn-primary href="/cv-checker/" >Get Started</a>
+        <a class= btn-primary href="/contact_us/">Contact Us</a>
+    <!-- Navigation -->
+       <!-- Dark Mode Toggle Button -->
+        {% comment %} <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+            <i class="fa-solid fa-moon" id="theme-icon"></i>
+            <span id="theme-text">Dark</span>
+        </button> {% endcomment %}
+
+
+{% comment %}         
+        <button class="theme-toggle-pill" id="theme-toggle">
+    <div class="toggle-track">
+        <i class="fa-solid fa-sun sun-icon"></i>
+        <i class="fa-solid fa-moon moon-icon"></i>
+        <div class="toggle-thumb"></div>
+    </div>
+</button> 
+
+{% comment %} good {% endcomment %}
+ {% comment %} <button class="theme-toggle-gradient" id="theme-toggle">
+    <span class="gradient-border"></span>
+    <span class="toggle-content">
+        <i class="fa-solid fa-moon" id="theme-icon"></i>
+    </span>
+</button>  {% endcomment %}
+
+{% comment %} good-2 {% endcomment %}
+ {% comment %} <button class="theme-toggle-bouncy" id="theme-toggle">
+    <div class="bouncy-icon">
+        <i class="fa-solid fa-moon" id="theme-icon"></i>
+    </div>
+</button>  {% endcomment %}
+
+{% comment %} <button class="theme-toggle-reveal" id="theme-toggle">
+  <span class="reveal-bg"></span>
+  <i class="fa-solid fa-sun sun"></i>
+  <i class="fa-solid fa-moon moon"></i>
+</button>   {% endcomment %}
+{% comment %} good-4 {% endcomment %}
+{% comment %} <button class="theme-toggle-hex" id="theme-toggle">
+    <i class="fa-solid fa-moon" id="theme-icon"></i>
+    </button>  {% endcomment %}
+    
+    
+     {% comment %} <button class="theme-toggle-modern" id="theme-toggle">
+      <span class="mode-icon">
+        <i class="fa-solid fa-moon" id="theme-icon"></i>
+        </span>
+        <span class="mode-text" id="theme-text">Dark</span>
+        <span class="toggle-glow"></span>
+        </button>  {% endcomment %}
+
+
+         <button class="theme-toggle-modern" id="theme-toggle">
+      <span class="mode-icon">
+        <i class="fa-solid fa-moon" id="theme-icon"></i>
+      </span>
+      <span class="mode-text" id="theme-text">Dark</span>
+      <span class="toggle-glow"></span>
+    </button>
+        </div>  
+
+    </nav>
+

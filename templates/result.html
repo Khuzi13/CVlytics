@@ -1,0 +1,144 @@
+{% extends "base.html" %} 
+{% block content %}
+
+{% comment %} <h2>ATS Score: {{ ats_score }}</h2>
+<h3>Parse Rate: {{ parse_rate }}</h3>
+<h3>JD Match: {{ jd_match }}</h3>
+<h2>Overall Score: {{ overall_score }}</h2> {% endcomment %}
+
+{% comment %} <h3>Breakdown</h3>
+<ul>
+{% for k,v in breakdown.items %}
+    <li>{{ k }} : {{ v }}</li>
+{% endfor %}
+</ul> {% endcomment %}
+
+{% comment %} <h3>Breakdown</h3>
+<h2>Formatting: </h2>
+<h2>soft_skills_score: {{ soft_skills_score }}</h2>
+<h2>hard_skills_score: {{ hard_skills_score }}</h2> {% endcomment %}
+
+
+{% comment %} <h3>AI Suggestions</h3>
+<ul>
+{% for s in ai_suggestions %}
+    <li>{{ s }}</li>
+{% endfor %}
+</ul>                                                                                                                                        {% endcomment %}
+
+
+
+    <!-- Result Section -->
+    <div class="result-container">
+        <div class="result-header">
+            <h2>Analysis Report</h2>
+            <p>Here is how your CV performed against the job description.</p>
+        </div>
+
+{% comment %} result code
+        <h2>CV Uploaded Successfully ✅</h2>
+
+        <p><strong>File Name:</strong> {{ file_name }}</p>
+        <p><strong>File Size:</strong> {{ file_size }} bytes</p>
+        <p><strong>File ID:</strong> {{ file_id }}</p>
+        <p><strong>Job Description:</strong> {{ job_desc }}</p>
+        <a href="{{ file_url }}" target="_blank">View Uploaded CV</a>
+{% comment %} result code {% endcomment %}   
+
+
+        <div class="dashboard-grid">
+            
+            <!-- Left Side: Score Card -->
+            <div class="score-card">
+                <h3>Overall Match Score</h3>
+                <div class="circular-progress">
+                    <div class="value-container">{{ overall_score }}</div>
+                </div>
+                <p class="score-text">Good Job! Your resume is strong, but there are a few missing keywords.</p>
+                
+                <div class="stat-row">
+                    <div class="stat-item">
+                        <span>ATS Parse Rate</span>
+                        <strong>{{ parse_rate }}</strong>
+                    </div>
+                    <div class="stat-item">
+                        <span>Keyword Match</span>
+                        <strong>{{ jd_match }}</strong>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side: Detailed Breakdown -->
+            <div class="details-card">
+                <h3>Detailed Breakdown</h3>
+                
+                <!-- Category 1 -->
+                <div class="progress-item">
+                    <div class="progress-label">
+                        <span>Formatting & Structure</span>
+                        <span>{{ formatting_score }}/10</span>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill"  style="width: {{ formatting_score_color }}%;" ></div>
+                    </div>
+                </div>
+
+                <!-- Category 2 -->
+                <div class="progress-item">
+                    <div class="progress-label">
+                        <span>Hard Skills Match</span>
+                        <span>{{ hard_skills_score }}/10</span>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill orange" style="width: {{ soft_skills_score_color }}%;"></div>
+                    </div>
+                </div>
+
+                <!-- Category 3 -->
+                <div class="progress-item">
+                    <div class="progress-label">
+                        <span>Soft Skills & Tone</span>
+                        <span>{{ soft_skills_score }}/10</span>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" style="width: {{soft_skills_score_color}}%;"></div>
+                    </div>
+                </div>
+
+                <hr style="margin: 20px 0; border: 0; border-top: 1px solid #e5e7eb;">
+
+                <h3><i class="fa-solid fa-lightbulb" style="color: #f59e0b;"></i> AI Suggestions</h3>
+
+                {% if parse_rate  <= 10 %}
+                    <ul class="suggestion-list">
+                        <li class="warning"><i class="fa-solid fa-triangle-exclamation"></i> Missing: <strong>{{ ai_suggestion_1 }}</strong></li>
+                        <li class="warning"><i class="fa-solid fa-triangle-exclamation"></i> Missing: <strong>{{ ai_suggestion_2 }}</strong></li>
+                        <li class="warning"><i class="fa-solid fa-triangle-exclamation"></i> Missing: <strong>{{ ai_suggestion_3 }}</strong></li>
+                        <li class="warning"><i class="fa-solid fa-triangle-exclamation"></i> Missing: <strong>{{ ai_suggestion_4 }}</strong></li>
+                    </ul>
+                {% else %}
+                    <ul class="suggestion-list">
+                        <li class="warning"><i class="fa-solid fa-triangle-exclamation"></i> Missing: <strong>{{ ai_suggestion_1 }}</strong></li>
+                        <li class="warning"><i class="fa-solid fa-triangle-exclamation"></i> Missing: <strong>{{ ai_suggestion_2 }}</strong></li>
+                        <li class="success"><i class="fa-solid fa-check-circle"></i>{{ ai_suggestion_3 }}</li>
+                        <li class="success"><i class="fa-solid fa-check-circle"></i>{{ ai_suggestion_4 }}</li> 
+                    </ul>  
+                {% endif %}
+
+                
+            </div>
+        </div>
+
+        <div class="action-buttons">
+            <a href="/cv-checker/" class="btn-outline" style="color: #3730a3; border-color: #3730a3;">Analyze Another CV</a>
+            <button class="btn-primary" onclick="alert('Downloading PDF Report...')">Download Full PDF</button>
+        </div>
+    </div>
+
+{% endblock %}
+
+
+                    <li class="warning"><i class="fa-solid fa-triangle-exclamation"></i> Missing: <strong>{{ ai_suggestion_2 }}</strong></li>
+                    <li class="warning"><i class="fa-solid fa-triangle-exclamation"></i> Missing: <strong>{{ ai_suggestion_2 }}</strong></li>
+                    <li class="success"><i class="fa-solid fa-check-circle"></i>{{ ai_suggestion_3 }}</li>
+                    <li class="success"><i class="fa-solid fa-check-circle"></i>{{ ai_suggestion_4 }}</li> 

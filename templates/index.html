@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+    <!-- Hero Section -->
+    <header class="hero-section">
+      <div class="hero-content">
+        <h1>Optimize Your Resume with <span>Artificial Intelligence</span></h1>
+        <p>
+          Stop guessing if your CV is good enough. Our AI analyzes your resume
+          against industry standards and job descriptions to give you actionable
+          feedback.
+        </p>
+        <div class="hero-buttons">
+          <a href="/cv-checker/" class="btn-white">Analyze My CV Now</a>
+          <a href="#how-it-works" class="btn-outline">Learn More</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="section-container">
+      <div class="section-title">
+        <h2>How It Works</h2>
+        <p>Simple steps to get your dream job interview.</p>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="icon-box"><i class="fa-solid fa-upload"></i></div>
+          <h3>1. Upload Your CV</h3>
+          <p>
+            Upload your resume in PDF format. We prioritize your privacy and
+            data security.
+          </p>
+        </div>
+        <div class="step-card">
+          <div class="icon-box"><i class="fa-solid fa-microchip"></i></div>
+          <h3>2. AI Analysis</h3>
+          <p>
+            Our advanced NLP algorithms scan your CV for keywords, formatting,
+            and relevance.
+          </p>
+        </div>
+        <div class="step-card">
+          <div class="icon-box"><i class="fa-solid fa-chart-pie"></i></div>
+          <h3>3. Get Results</h3>
+          <p>
+            Receive a detailed score and a list of actionable improvements to
+            boost your chances.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About The Project Section -->
+    <section id="about" class="about-section">
+      <div class="about-container">
+        <div class="about-text">
+          <h2>About The Project</h2>
+          <p>
+            This project was developed by an AI undergraduate student to bridge
+            the gap between job seekers and Applicant Tracking Systems (ATS).
+          </p>
+          <p>
+            Using <strong>Python Django</strong> for the backend and
+            <strong>React</strong> for the frontend, we utilize Machine Learning
+            libraries to parse text, match keywords, and score resumes based on
+            semantic similarity.
+          </p>
+
+          <div class="tech-list">
+            <span><i class="fa-solid fa-check-circle"></i> Django Backend</span>
+            <span><i class="fa-solid fa-check-circle"></i> React Frontend</span>
+            <span><i class="fa-solid fa-check-circle"></i> NLP Processing</span>
+            <span><i class="fa-solid fa-check-circle"></i> PDF Parsing</span>
+          </div>
+        </div>
+
+        <div class="about-card">
+          <h3>Why Use This Tool?</h3>
+          <ul>
+            <li>
+              <i class="fa-solid fa-bolt"></i> Get instant feedback without
+              waiting for recruiters.
+            </li>
+            <li>
+              <i class="fa-regular fa-circle"></i> Identify formatting errors
+              that might block your application.
+            </li>
+            <li>
+              <i class="fa-solid fa-bullseye"></i> Tailor your CV to specific
+              job descriptions effectively.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+{% endblock  %}
